@@ -7,8 +7,8 @@
     overflow-y: auto;
 }
 
-.chatbot {
-    width: 100%;
+/* .chatbot {
+    width: 50%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -17,7 +17,7 @@
     align-items: center;
     overflow: hidden;
     height: 100vh;
-}
+} */
 
 .input-prompt {
     display: flex;
