@@ -7,7 +7,7 @@ import "codemirror/mode/css/css";
 import 'codemirror/addon/edit/closebrackets';
 import 'codemirror/addon/edit/matchbrackets';
 import 'codemirror/addon/edit/closetag';
-import './codeeditor/CodeEditor.css'
+import './codeeditor/codeEditor.css'
 import { Controlled as ControlledEditor } from 'react-codemirror2';
 
 function Editor({ language, displayName, value, onChange }) {

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './CodeEditor.css'
+import './codeEditor.css'
 import Editor from '../Editor';
 
 function CodeEditor() {

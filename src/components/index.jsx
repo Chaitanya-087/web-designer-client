@@ -1,5 +1,5 @@
 import Chatbot from "./chatbot/Chatbot";
-import CodeEditor from "./codeeditor/codeEditor";
+import CodeEditor from "./codeeditor/CodeEditor";
 import "./index.css";
 import Split from 'react-split'
 
