@@ -17,12 +17,13 @@
 }
 
 .codeeditor {
-    border-left: 2px solid black; 
+    /* border-left: 2px solid black;  */
 }
 
 .split {
     display: flex;
     flex-direction: row;
+    
 }
 
 .gutter {

@@ -8,9 +8,20 @@
     width: 100%;
 }
 
-
+.CodeMirror-scroll {
+    width: 100% !important;
+}
+iframe {
+    width: 100% !important;
+    height: 100vh !important;
+    border: 0 !important;
+}
+.CodeMirror {
+    height: 100vh !important;
+    width: 100% !important;
+}
 .codeeditor-content{
-    width: 90%;
+    width: 100%;
     padding-top: 1rem;
 }
 

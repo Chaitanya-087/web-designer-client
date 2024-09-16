@@ -35,6 +35,7 @@ function Editor({ language, displayName, value, onChange }) {
                     highlightNonMatching: true,
                     autoCloseTags: true,
                     fullScreen: true,
+                    tabSize: 2,
                 }}
             />
         </div>
