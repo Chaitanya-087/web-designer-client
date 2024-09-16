@@ -1,25 +1,19 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { GoPlus } from "react-icons/go";
-import { IoIosMenu } from "react-icons/io";
 import { CiChat1 } from "react-icons/ci";
 import './sidebar.css';
 
-
 function Sidebar() {
-
-    const [extended, setExtended] = useState(false);
-    const toggleExtended = () => {
-        setExtended(prev => !prev);
-    }
     return (
         <div className="sidebar">
-            <IoIosMenu className='menu-icon' onClick={toggleExtended} />
+            <span className='title'>Logo</span>
+            {/* <IoIosMenu className='menu-icon' /> */}
             <div className='menu'>
                 <div className='new-chat'>
                     <GoPlus className='add-icon' />
-                    {extended ? <p>New Chat</p> : null}
+                    <p>New Chat</p>
                 </div>
-                {extended ? <div className='recent'>
+                <div className='recent'>
                     <p className='recent-title'>Recent</p>
                     <div className='recent-entry' title="chat title">
                         <CiChat1 />
@@ -38,7 +32,7 @@ function Sidebar() {
                         <p>chat session</p>
                     </div>
 
-                </div> : null}
+                </div>
 
             </div>
 

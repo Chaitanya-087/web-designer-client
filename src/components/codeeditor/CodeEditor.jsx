@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './codeEditor.css'
-import Editor from '../Editor';
+import Editor from '@monaco-editor/react';
 
 function CodeEditor() {
     const [activePage, setActivePage] = useState('html');
@@ -33,25 +33,34 @@ function CodeEditor() {
             <div className="codeeditor-content">
                 {activePage === 'html' && (
                     <Editor
+                        height="500px"
+                        width="100%"
                         language="html"
                         displayName="HTML"
                         value={html}
+                        theme="vs-dark"
                         onChange={setHtml}
                     />
                 )}
                 {activePage === 'css' && (
                     <Editor
+                        height="500px"
+                        width="100%"
                         language="css"
                         displayName="CSS"
                         value={css}
+                        theme="vs-dark"
                         onChange={setCss}
                     />
                 )}
                 {activePage === 'javascript' && (
                     <Editor
+                        height="500px"
+                        width="100%"
                         language="javascript"
                         displayName="JavaScript"
                         value={js}
+                        theme="vs-dark"
                         onChange={setJs}
                     />
                 )}
