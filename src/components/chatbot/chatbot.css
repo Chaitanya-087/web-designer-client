@@ -5,6 +5,7 @@
     padding-top: 1rem;
     scroll-behavior: smooth;
     overflow-y: auto;
+    background-color: #1e1e1e;
 }
 
 /* .chatbot {

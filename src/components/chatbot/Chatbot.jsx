@@ -1,11 +1,8 @@
 import { AiOutlineSend } from "react-icons/ai";
 import "./chatbot.css";
-import { IoSendSharp } from "react-icons/io5";
-import { input } from "framer-motion/client";
-import { useRef, useState } from "react";
-import axios from "axios";
+import {  useState } from "react";
+// import axios from "axios";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 function Chatbot() {
@@ -13,11 +10,11 @@ function Chatbot() {
   const [AIRespoinse, setAIResponse] = useState("");
 
   const postPrompt = async () => {
-    const res = await axios.post("http://localhost:8080/sendPrompt", {
-      content: prompt,
-    });
-    console.log(res);
-    setAIResponse(res.data);
+    // // const res = await axios.post("http://localhost:8080/sendPrompt", {
+    //   content: prompt,
+    // });
+    // console.log(res);
+     setAIResponse('mg');
   };
 
   return (
