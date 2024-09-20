@@ -33,7 +33,7 @@ function CodeEditor() {
             <div className="codeeditor-content">
                 {activePage === 'html' && (
                     <Editor
-                        height="500px"
+                        height="100%"
                         width="100%"
                         language="html"
                         displayName="HTML"

@@ -9,8 +9,13 @@ function Sidebar() {
     const [chats, setChats] = useState([]);
 
     useEffect(() =>{
-        const res = axios.get("http://localhost:8080/chats/users/124/all")
-        setChats(res.data)
+        const fetchData = async () => {
+            const res = await axios.get("http://localhost:8080/chats/users/124/all")
+            const data = await res.data
+            setChats(data)
+            console.log(data)
+        }
+        fetchData()
     },[])
 
 
@@ -31,13 +36,13 @@ function Sidebar() {
                 </div>
                 <div className='recent'>
                     <p className='recent-title'>Recent</p>
-                    {chats.map((chat) => (
-                    <div className='recent-entry' title="chat title" key={chat.id}>
+                    {chats.map((chat) =>{
+                    const chatTitle = chat.messages.length > 0 ? chat.messages[0]["user_message"].text : `new chat ${chat.id.slice(5)}` 
+                    return(<div className='recent-entry' title={chatTitle} key={chat.id}>
                         <CiChat1 />
-                        <p>chat session 25136</p>
-                    </div>
-                    )
-                    )};
+                        <p>{chatTitle}</p>
+                    </div>)}
+                    )}
                 </div>
 
             </div>
