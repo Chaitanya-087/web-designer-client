@@ -1,21 +1,34 @@
-import { AiOutlineSend } from "react-icons/ai";
-import "./chatbot.css";
-import {  useState } from "react";
-// import axios from "axios";
+import { useEffect, useState } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { a11yDark } from "react-syntax-highlighter/dist/esm/styles/hljs";
+import { useParams } from "react-router-dom";
+import axios from "axios";
 
-function Chatbot() {
+import ChatForm from "../chatForm/chatForm";
+import "./chat.css";
+import { div } from "framer-motion/client";
+
+function Chat() {
+  const { chatId } = useParams();
   const [prompt, setPrompt] = useState("");
-  const [AIRespoinse, setAIResponse] = useState("");
+  const [messages, setMessages] = useState([]);
 
   const postPrompt = async () => {
-    // // const res = await axios.post("http://localhost:8080/sendPrompt", {
-    //   content: prompt,
-    // });
-    // console.log(res);
-     setAIResponse('mg');
+    console.log("Posting prompt...");
   };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const res = await axios.get(`http://localhost:8080/chats/${chatId}`);
+      const data = await res.data;
+      console.log(data);
+      setMessages(data.messages);
+    };
+    fetchData();
+    return () => {
+      console.log("cleanup");
+    };
+  }, []);
 
   return (
     <>
@@ -25,15 +38,16 @@ function Chatbot() {
             <div className="chat-message-text">{prompt}</div>
           </div>
         ) : null}
-        {AIRespoinse ? (
-          <>
-            <div className="chat-message">
+        {messages.map((message) => (
+          <div className="chat-message" key={message.id}>
+            {/* <div className="chat-message">
               <div className="chat-message-text">
                 <SyntaxHighlighter language="html" style={a11yDark}>
-                  {AIRespoinse.html}
+                  {message.ht}
                 </SyntaxHighlighter>
               </div>
             </div>
+
             <div className="chat-message">
               <div className="chat-message-text">
                 <SyntaxHighlighter language="css" style={a11yDark}>
@@ -41,42 +55,22 @@ function Chatbot() {
                 </SyntaxHighlighter>
               </div>
             </div>
+
             <div className="chat-message">
               <div className="chat-message-text">
                 <SyntaxHighlighter language="javascript" style={a11yDark}>
                   {AIRespoinse.js}
                 </SyntaxHighlighter>
               </div>
-            </div>
-          </>
-        ) : null}
-      </div>
-      <div className="input-prompt">
-        <input
-          type="text"
-          placeholder="Enter a prompt here"
-          value={prompt}
-          id="prompt"
-          onChange={(e) => setPrompt(e.target.value)}
-        />
-        <div className="send-icon">
-          <AiOutlineSend onClick={postPrompt} />
-        </div>
-        <div className="footer">
-          <div className="footer-text">
-            Powered by{" "}
-            <a
-              href="https://gemini.google.com/"
-              target="_blank"
-              rel="noreferrer"
-            >
-              GeminiAI
-            </a>
+            </div> */}
+            {JSON.stringify(message)}
           </div>
-        </div>
+
+        ))}
       </div>
+      <ChatForm prompt={prompt} setPrompt={setPrompt} postPrompt={postPrompt} />
     </>
   );
 }
 
-export default Chatbot;
+export default Chat;

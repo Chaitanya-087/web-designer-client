@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import './codeEditor.css'
 import Editor from '@monaco-editor/react';
+import './codeEditor.css'
 
 function CodeEditor() {
     const [activePage, setActivePage] = useState('html');
@@ -23,7 +23,7 @@ function CodeEditor() {
         return () => clearTimeout(timeout);
     }, [html, css, js]);
     return (
-        <>
+        <React.Fragment>
             <div className="codeeditor-navbar">
                 <button onClick={() => setActivePage('html')}>HTML</button>
                 <button onClick={() => setActivePage('css')}>CSS</button>
@@ -77,7 +77,7 @@ function CodeEditor() {
                     </div>
                 )}
             </div>
-        </>
+        </React.Fragment>
     );
 }
 

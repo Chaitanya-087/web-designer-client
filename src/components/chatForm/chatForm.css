@@ -1,25 +1,3 @@
-.chat-container {
-    /* display: flex;
-    flex-direction: column; */
-    width: 60%;
-    padding-top: 1rem;
-    scroll-behavior: smooth;
-    overflow-y: auto;
-    background-color: #1e1e1e;
-}
-
-/* .chatbot {
-    width: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 1rem;
-    padding-bottom: 3rem;
-    align-items: center;
-    overflow: hidden;
-    height: 100vh;
-} */
-
 .input-prompt {
     display: flex;
     width: 75%;
