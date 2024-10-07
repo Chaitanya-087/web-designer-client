@@ -16,6 +16,7 @@
 
 .split > * {
     flex-grow: 1;
+    
 }
 
 .gutter {

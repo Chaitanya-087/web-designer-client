@@ -6,12 +6,10 @@ import { Outlet } from 'react-router-dom';
 
 function App() {
   return (
-    <React.Fragment>
-      <Split className="split" expandToMin={true} minSize={250}>
+    <div className='app'>
         <Sidebar />
         <Outlet />
-      </Split>
-    </React.Fragment>
+    </div>
   );
 }
 
